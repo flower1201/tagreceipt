@@ -1,0 +1,66 @@
+{
+  "name": "tagreceipt",
+  "version": "0.1.0-rc.1",
+  "description": "Audit GitHub releases against the exact commits and CI jobs that tested them. Generate an evidence-linked release receipt.",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "tagreceipt": "./dist/cli/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "engines": {
+    "node": "^22.12.0 || ^24.0.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "vitest run --config vitest.e2e.config.ts",
+    "demo": "npm run build && node ./scripts/run-demo.mjs",
+    "tagreceipt": "node ./dist/cli/index.js"
+  },
+  "keywords": [
+    "github-actions",
+    "github-release",
+    "release-engineering",
+    "cli",
+    "developer-tools",
+    "ci-cd",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flower1201/tagreceipt.git"
+  },
+  "homepage": "https://github.com/flower1201/tagreceipt#readme",
+  "bugs": {
+    "url": "https://github.com/flower1201/tagreceipt/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^15.0.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "playwright": "^1.56.1",
+    "tsup": "^8.5.1",
+    "typescript": "~5.7.3",
+    "vitest": "^5.0.3"
+  },
+  "allowScripts": {
+    "esbuild@0.27.7": true
+  }
+}
